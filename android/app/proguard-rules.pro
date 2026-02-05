@@ -8,3 +8,41 @@
 #   http://developer.android.com/guide/developing/tools/proguard.html
 
 # Add any project specific keep options here:
+
+
+# ============================================
+# Project specific ProGuard rules
+# ============================================
+
+# React Native
+-keep class com.facebook.react.** { *; }
+-dontwarn com.facebook.react.**
+
+# OkHttp & Networking (safe for Razorpay)
+-dontwarn okhttp3.**
+-dontwarn okio.**
+
+# ============================================
+# Razorpay (IMPORTANT)
+# ============================================
+
+# Keep all Razorpay SDK classes
+-keep class com.razorpay.** { *; }
+
+# Do not warn for Razorpay
+-dontwarn com.razorpay.**
+
+# ============================================
+# Gson (used internally)
+# ============================================
+-keep class com.google.gson.** { *; }
+
+# ============================================
+# Kotlin metadata (important for Kotlin apps)
+# ============================================
+-keep class kotlin.Metadata { *; }
+
+# ============================================
+# Keep annotations (safe)
+# ============================================
+-keepattributes *Annotation*
